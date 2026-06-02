@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cyber Security Project</title>
+</head>
+<body>
+
+<h2>Cyber Security Project</h2>
+
+<p>
+This page collects your location and device information for an educational project.
+Please click Allow when your browser asks for location permission.
+</p>
+
+<div id="result"></div>
+
+<script>
+
+var result = document.getElementById("result");
+
+var deviceInfo =
+"Browser: " + navigator.userAgent;
+
+if (navigator.geolocation) {
+
+    navigator.geolocation.getCurrentPosition(function(position){
+
+        result.innerHTML =
+        "<h3>Collected Information</h3>" +
+        "Latitude: " + position.coords.latitude + "<br>" +
+        "Longitude: " + position.coords.longitude + "<br><br>" +
+        deviceInfo;
+
+    });
+
+}
+else{
+    result.innerHTML = "Geolocation not supported";
+}
+
+</script>
+
+</body>
+</html>
